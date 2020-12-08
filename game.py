@@ -26,18 +26,23 @@ duckpic = pygame.transform.flip(duckpic, True, False)
 
 #Crosshair images
 c_hair = pygame.image.load(r"duckhunt/crosshair.png")
-c_hair = pygame.transform.scale(c_hair, (25, 27))
-'''c_hair = pygame.Surface.set_colorkey(None) <=== Work on this line'''
+c_hair = pygame.transform.scale(c_hair, (40, 40))
 
+#Mouse cursor disabler
 pygame.mouse.set_visible(False)
+
 
 #This captions the game window
 pygame.display.set_caption("Duck Hunt")
- 
+
+#Adjusts the image of the bird moving
+x_bird = 0
+
 #display the output screen
 while running:
     display_surface.blit(image, (0, 0))
-    display_surface.blit(duckpic, (200, 200))
+    display_surface.blit(duckpic, (x_bird, 200))
+    x_bird += 2.5
     mouse_cursor = pygame.mouse.get_pos()
     x = mouse_cursor[0]
     y = mouse_cursor[1]
